@@ -1,4 +1,4 @@
-local modem = peripheral.find("modem") or error("No modem attached", 0)
+local modem = arg[1]
 local net = rednet.open(modem)
 
 local screen = require("screen")
@@ -14,9 +14,9 @@ while true do
     if tostring(message) == "client_request" then
         amount_of_clients = amount_of_clients + 1
         print("Client connected, amount of clients: " .. amount_of_clients)
-    else
+    elseif tostring("message"):find("JSON_BEER_SEND") then
         local msg = tostring(message)
-        local msg_json = json.decode(msg)
+        local msg_json = json.decode(msg:sub(15))
         
         local client_id = msg_json.client_id
         local barrel_id = msg_json.barrel_id

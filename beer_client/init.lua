@@ -19,7 +19,7 @@ if modem_side then
                 inventory = inventory
             }
             local msg_json = json.encode(msg)
-            net.send(0, msg_json)
+            net.send(0, "JSON_BEER_SEND:" .. msg_json)
             print("sent")
         end
     end

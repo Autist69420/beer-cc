@@ -22,7 +22,7 @@ return {
     
     getSlotOfBarrel = function(inv, slot)
         return inv[slot]
-    end
+    end,
 
     getBarrelTotalItems = function(inv)
         local total = 0

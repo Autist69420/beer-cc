@@ -15,7 +15,7 @@ if to_download == "client" then
         return
     end
 
-    local request = http.get("https://example.tweaked.cc")
+    local request = http.get(CLIENT_URL)
     local client_files_json = json.decode(request.readAll())
 
     for i = 1, #client_files_json do

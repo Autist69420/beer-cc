@@ -27,7 +27,7 @@ if to_download == "client" then
     end
 
     print("Downloaded client.")
-else if to_download == "server" then
+elseif to_download == "server" then
     -- Download the server files
 else
     error("Invalid argument, either choose from 'client' or 'server'", 0)

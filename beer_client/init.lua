@@ -14,7 +14,7 @@ while true do
     end
 
     local barrels = inventory.getBarrels()
-    for i = 1 in #barrels do
+    for i = 1, #barrels do
         local barrel_id = barrels[i]:sub(11)
         local inventory = inventory.getInventoryOfBarrelId(barrel_id)
         local msg = {
@@ -24,6 +24,5 @@ while true do
         }
         local msg_json = json.encode(msg)
         modem.transmit(81, 80, msg_json)
-    end
     end
 end

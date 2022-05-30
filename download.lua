@@ -30,6 +30,6 @@ if to_download == "client" then
 else if to_download == "server" then
     -- Download the server files
 else
-    error("Invalid argument", 0)
+    error("Invalid argument, either choose from 'client' or 'server'", 0)
     exit()
 end

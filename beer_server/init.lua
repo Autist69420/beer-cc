@@ -14,8 +14,8 @@ while true do
         amount_of_clients = amount_of_clients + 1
         print("Client connected, amount of clients: " .. amount_of_clients)
     elseif string.find(tostring(message), "JSON_BEER_SEND") then
-        local msg = tostring(message)
-        local msg_json = json.decode(msg:sub(15))
+        local msg = string.gsub(tostring(message), "JSON_BEER_SEND:", "")
+        local msg_json = json.decode(msg)
         
         local client_id = msg_json.client_id
         local barrel_id = msg_json.barrel_id

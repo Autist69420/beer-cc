@@ -8,7 +8,6 @@ local beer_wind = screen.init()
 modem.open(81)
 print("Opened to port 81")
 
-beer_wind.write("- Beer status", 1, 1)
 
 while true do
     local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")

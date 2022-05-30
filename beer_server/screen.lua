@@ -15,17 +15,14 @@ function beer_status:init()
 
     returned.window = beer_status_window
 
-    function returned.write(text, should_update_x, should_update_y)
-        if should_update_y then
-            beer_status.index_y = beer_status.index_y + y + 1
-        end
-
-        beer_status_window.setCursorPos(beer_status.index_x, beer_status.index_y)
-        beer_status_window.write(text)
+    function returned.write(self, text, x)
+        local _, y = self.window.getCursorPos()
+        self.window.setCursorPos(x, y+1)
+        self.window.write(text)
     end
 
     function returned.update()
-        beer_status_window.clear()
+        self.window.clear()
     
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]

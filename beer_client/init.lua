@@ -9,7 +9,7 @@ rednet.send(0, "client_request")
 while true do
     local barrels = inventory.getBarrels()
     for i = 1, #barrels do
-        local barrel_id = barrels[i]:sub(18)
+        local barrel_id = barrels[i]:gsub("minecraft:barrel_", "")
         local inventory = inventory.getInventoryOfBarrelId(barrel_id)
         local msg = {
             client_id = os.getComputerID(),

@@ -24,7 +24,7 @@ function beer_status:init()
     
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
-            returned.write("- " ..item.name .. ": " .. item.count, false, true)
+            returned.write("- " ..item.name .. ": " .. item.count, 1)
         end
     end
 
@@ -32,6 +32,7 @@ function beer_status:init()
         -- check for duplicates
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
+            print(name, item.name)
             if item.name == name then
                 return
             end

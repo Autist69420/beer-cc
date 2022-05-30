@@ -51,6 +51,8 @@ elseif to_download == "server" then
         file_handle.write(file_content_str)
         file_handle.close()
     end
+
+    print("Downloaded server.")
 else
     error("Invalid argument, either choose from 'client' or 'server'", 0)
     exit()

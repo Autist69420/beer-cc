@@ -1,5 +1,7 @@
 -- Downloads the files, lmao
 
+local json = require("json")
+
 local to_download = arg[1]
 
 local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_client"
@@ -14,8 +16,8 @@ if to_download == "client" then
     end
 
     local request = http.get("https://example.tweaked.cc")
-    local client_files_json = textutils.unserialize(response.readAll())
-    print(request.readAll())
+    local client_files_json = json.decode(request.readAll())
+
     for i = 1, #client_files_json do
         local file_name = client_files_json[i].name
         local file_url = client_files_json[i].download_url

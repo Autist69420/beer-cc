@@ -13,8 +13,9 @@ if to_download == "client" then
         return
     end
 
-    local client_files = http.get(CLIENT_URL)
-    local client_files_json = textutils.unserialize(client_files.readAll())
+    local response = http.get(CLIENT_URL, nil, true)
+    local client_files_json = textutils.unserialize(response.readAll())
+    print(response)
     for i = 1, #client_files_json do
         local file_name = client_files_json[i].name
         local file_url = client_files_json[i].download_url

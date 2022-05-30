@@ -24,7 +24,7 @@ function beer_status:init()
     
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
-            self.write("- " ..item.name .. ": " .. item.count, false, true)
+            returned.write("- " ..item.name .. ": " .. item.count, false, true)
         end
     end
 
@@ -42,7 +42,7 @@ function beer_status:init()
             count = count
         }
 
-        self.items[#self.items + 1] = item
+        returned.items[#self.items + 1] = item
         print("Added item: " .. name .. ": " .. count)
     end
 

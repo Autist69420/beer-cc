@@ -8,8 +8,6 @@ print("Opened to port 80")
 modem.transmit(81, 80, "client_request")
 
 while true do
-    print("Waiting for client...")
-
     local barrels = inventory.getBarrels()
     for i = 1, #barrels do
         local barrel_id = barrels[i]:sub(18)

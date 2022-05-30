@@ -42,8 +42,9 @@ function beer_status:init()
             count = count
         }
 
+        print(item.name, item.count)
         beer_status.items[#beer_status.items + 1] = item
-        print("Added item: " .. name .. ": " .. count)
+        print("Added item: " .. name .. ": " .. tostring(item.count))
     end
 
     return returned

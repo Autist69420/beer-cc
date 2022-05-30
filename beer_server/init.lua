@@ -30,9 +30,9 @@ while true do
                 local item_name = inventory[i].name
                 local item_amount = inventory[i].count
 
-                -- print(item_name, item_amount)
-                
+                beer_wind.addItem(item_name, item_amount)
             end
         end
     end
+    beer_wind.update()
 end

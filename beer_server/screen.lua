@@ -1,6 +1,6 @@
 local beer_status = {index_x = 1, index_y = 1, items = {}}
 
-local function beer_status.init()
+function beer_status:init()
     local returned = {}
     local screen = peripheral.find("monitor") or error("No monitor attached", 0)
     local x, y = screen.getSize()
@@ -24,7 +24,7 @@ local function beer_status.init()
         self.window.write(text)
     end
 
-    function returned.update(name, status)
+    function returned.update()
         self.window.clear()
     
         for i = 1, #beer_status.items do
@@ -34,12 +34,21 @@ local function beer_status.init()
     end
 
     function returned.addItem(name, count) 
+        -- check for duplicates
+        for i = 1, #beer_status.items do
+            local item = beer_status.items[i]
+            if item.name == name then
+                return
+            end
+        end
+
         local item = {
             name = name,
             count = count
         }
 
         self.items[#self.items + 1] = item
+        print("Added item: " .. name .. ": " .. count)
     end
 
     return returned

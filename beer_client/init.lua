@@ -17,7 +17,7 @@ while true do
             inventory = inventory
         }
         local msg_json = json.encode(msg)
-        net.send(0, "JSON_BEER_SEND:" .. msg_json)
+        rednet.send(0, "JSON_BEER_SEND:" .. msg_json)
         print("sent")
     end
 end

@@ -13,7 +13,7 @@ while true do
     if tostring(message) == "client_request" then
         amount_of_clients = amount_of_clients + 1
         print("Client connected, amount of clients: " .. amount_of_clients)
-    elseif tostring("message"):find("JSON_BEER_SEND") then
+    elseif string.find(tostring(message), "JSON_BEER_SEND") then
         local msg = tostring(message)
         local msg_json = json.decode(msg:sub(15))
         
@@ -25,7 +25,7 @@ while true do
         for i = 1, #inventory do
             local item_name = inventory[i].name
             local item_amount = inventory[i].count
-
+            print(item_name, item_amount)
             beer_wind.addItem(item_name, item_amount)
         end
     end

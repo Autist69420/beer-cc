@@ -20,12 +20,12 @@ function beer_status:init()
             beer_status.index_y = beer_status.index_y + y + 1
         end
 
-        self.window.setCursorPos(beer_status.index_x, beer_status.index_y)
-        self.window.write(text)
+        beer_status_window.setCursorPos(beer_status.index_x, beer_status.index_y)
+        beer_status_window.write(text)
     end
 
     function returned.update()
-        self.window.clear()
+        beer_status_window.clear()
     
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]

@@ -1,11 +1,11 @@
 local modem = peripheral.getName("modem")
 local modem_side = arg[1]
 
-if modem_side then
-    local net = rednet.open(modem_side)
-    local inventory = require("inventory")
-    local json = require("../json")
+local net = rednet.open(modem_side)
+local inventory = require("inventory")
+local json = require("../json")
 
+if modem_side then
     net.send(0, "client_request")
 
     while true do

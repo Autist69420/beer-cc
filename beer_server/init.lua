@@ -9,7 +9,6 @@ local beer_wind = screen.init()
 
 while true do
     local id, message = rednet.receive(nil, 5)
-    print(id, message)
 
     if tostring(message) == "client_request" then
         amount_of_clients = amount_of_clients + 1

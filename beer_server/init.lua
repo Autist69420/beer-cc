@@ -24,7 +24,7 @@ while true do
             -- loop trough the inventory and check if the client has the item
             for i = 1, #inventory do
                 local item_name = inventory[i].name
-                local item_amount = inventory[i].amount
+                local item_amount = inventory[i].count
 
                 print(item_name, item_amount)
             end

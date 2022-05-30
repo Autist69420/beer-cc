@@ -15,7 +15,7 @@ return {
     end,
 
     getInventoryOfBarrelId = function(id)
-        local barrel = peripheral.find("minecraft:barrel_"..tostring(id)) or error("Barrel not found", 0)
+        local barrel = peripheral.wrap("minecraft:barrel_"..tostring(id)) or error("Barrel not found", 0)
         local inventory = barrel.list()
         return inventory
     end

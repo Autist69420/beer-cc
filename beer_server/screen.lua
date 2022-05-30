@@ -19,7 +19,7 @@ function beer_status:init()
         beer_status_window.write(text)
     end
 
-    function returned.update()
+    function returned:update()
         beer_status_window.clear()
     
         for i = 1, #beer_status.items do
@@ -28,7 +28,7 @@ function beer_status:init()
         end
     end
 
-    function returned.addItem(name, count) 
+    function returned:addItem(name, count) 
         -- check for duplicates
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
@@ -42,7 +42,7 @@ function beer_status:init()
             count = count
         }
 
-        returned.items[#self.items + 1] = item
+        beer_status.items[#beer_status.items + 1] = item
         print("Added item: " .. name .. ": " .. count)
     end
 

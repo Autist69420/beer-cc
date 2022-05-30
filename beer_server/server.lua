@@ -1,12 +1,27 @@
 local modem = arg[1]
 rednet.open(modem)
 
-local screen = require("screen")
+-- surface api OwO
+os.loadAPI("surface")
+-- surface.create(width, height, char, backcolor, textcolor)
+-- surf:drawText(x, y, text, backcolor, textcolor)
+-- surface.render(surface, display, x, y, sx1, sy1, sx2, sy2)
+
 local json = require("../json")
 
-local amount_of_clients = 0
-local beer_wind = screen.init()
+local screen = peripheral.find("monitor") or error("No monitor attached", 0)
+local x, y = screen.getSize()
 
+local tab_bar = surface.create(x, 2, " ", colors.gray, colors.white)
+local main_surf = surface.create(x, y, " ", colors.blue, colors.white)
+
+tab_bar:drawText(1, 1, "Beer Server")
+main_surf:drawText(1, 1, "Welcome to le epic beer server")
+
+tab_bar:render(screen, 1, 1)
+main_surf:render(screen, 1, 3)
+
+--[[
 while true do
     local id, message = rednet.receive(nil, 5)
 
@@ -38,3 +53,4 @@ while true do
 
     beer_wind:update()
 end
+]]

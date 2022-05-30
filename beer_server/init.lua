@@ -20,15 +20,20 @@ while true do
         local client_id = msg_json.client_id
         local barrel_id = msg_json.barrel_id
         local inventory = msg_json.inventory
+        
+        local same_items_count = 0
+        local same_items_name = ""
 
         -- loop trough the inventory and check if the client has the item
         for i = 1, #inventory do
-            print(inventory[i].name, inventory[i].count)
             local item_name = inventory[i].name
             local item_amount = inventory[i].count
-            
-            beer_wind:addItem(item_name, item_amount)
+
+            same_items_count = same_items_count + item_amount
+            same_items_name = item_name
         end
+
+        beer_wind:addItem(same_items_name, same_items_count)
     end
 
     beer_wind:update()

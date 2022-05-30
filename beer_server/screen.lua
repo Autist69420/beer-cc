@@ -1,4 +1,4 @@
-local beer_status = {index_x = 1, index_y = 1, items = {}}
+local beer_status = {items = {}}
 
 function beer_status:init()
     local returned = {}
@@ -21,10 +21,14 @@ function beer_status:init()
 
     function returned:update()
         beer_status_window.clear()
+        beer_status_window.setCursorPos(1, 1)
+        for k in pairs (beer_status.items) do
+            beer_status[k] = nil
+        end
     
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
-            returned.write("- " ..item.name .. ": " .. item.count, 1)
+            returned.write("- " ..item.name:gsub("drinkbeer:", "") .. ": " .. item.count, 1)
         end
     end
 
@@ -33,7 +37,7 @@ function beer_status:init()
         for i = 1, #beer_status.items do
             local item = beer_status.items[i]
             print(name, item.name)
-            if item.name == name then
+            if item.name == name and item.count == count then
                 return
             end
         end

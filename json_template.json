@@ -1,0 +1,10 @@
+{
+    "client_id": "computer_id",
+    "barrel_id": 3,
+    "inventory": [
+        {
+            "count": 15,
+            "name": "computer"
+        }
+    ]
+}

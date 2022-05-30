@@ -1,23 +1,28 @@
-local modem = peripheral.find("modem") or error("No modem attached", 0)
-local inventory = require("inventory")
-local json = require("../json")
+local modem = peripheral.getName("modem")
+local modem_side = arg[1]
 
-modem.open(80)
-print("Opened to port 80")
+if modem_side then
+    local net = rednet.open(modem_side)
+    local inventory = require("inventory")
+    local json = require("../json")
 
-modem.transmit(81, 80, "client_request")
+    net.send(0, "client_request")
 
-while true do
-    local barrels = inventory.getBarrels()
-    for i = 1, #barrels do
-        local barrel_id = barrels[i]:sub(18)
-        local inventory = inventory.getInventoryOfBarrelId(barrel_id)
-        local msg = {
-            client_id = 1,
-            barrel_id = barrel_id,
-            inventory = inventory
-        }
-        local msg_json = json.encode(msg)
-        modem.transmit(81, 80, msg_json)
+    while true do
+        local barrels = inventory.getBarrels()
+        for i = 1, #barrels do
+            local barrel_id = barrels[i]:sub(18)
+            local inventory = inventory.getInventoryOfBarrelId(barrel_id)
+            local msg = {
+                client_id = os.getComputerID(),
+                barrel_id = barrel_id,
+                inventory = inventory
+            }
+            local msg_json = json.encode(msg)
+            net.send(0, msg_json)
+            print("sent")
+        end
     end
+else
+    error("Invalid side or no side given")
 end

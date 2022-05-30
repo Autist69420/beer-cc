@@ -1,10 +1,10 @@
 local modem_side = arg[1]
 
-local net = rednet.open(modem_side)
+rednet.open(modem_side)
 local inventory = require("inventory")
 local json = require("../json")
 
-net.send(0, "client_request")
+rednet.send(0, "client_request")
 
 while true do
     local barrels = inventory.getBarrels()

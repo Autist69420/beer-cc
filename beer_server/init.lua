@@ -1,5 +1,5 @@
 local modem = arg[1]
-local net = rednet.open(modem)
+rednet.open(modem)
 
 local screen = require("screen")
 local json = require("../json")

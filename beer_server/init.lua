@@ -1,10 +1,14 @@
 local modem = peripheral.find("modem") or error("No modem attached", 0)
+local screen = require("screen")
 local json = require("../json")
 
 local amount_of_clients = 0
+local beer_wind = screen.init()
 
 modem.open(81)
 print("Opened to port 81")
+
+beer_wind.write("- Beer status", 1, 1)
 
 while true do
     local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
@@ -26,7 +30,8 @@ while true do
                 local item_name = inventory[i].name
                 local item_amount = inventory[i].count
 
-                print(item_name, item_amount)
+                -- print(item_name, item_amount)
+                
             end
         end
     end

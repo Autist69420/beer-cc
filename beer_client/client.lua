@@ -4,8 +4,6 @@ rednet.open(modem_side)
 local inventory = require("inventory")
 local json = require("../json")
 
-rednet.send(0, "client_request")
-
 while true do
     local beerChests = {}
     local chests = inventory.getChests()
@@ -32,7 +30,8 @@ while true do
         end
     end
     
-    rednet.send(0, json.encode(beerChests), "BEER")
-    -- sleep for 5 second, we do not want it to send 2735429374 times a second
-    os.sleep(5)
+    rednet.send(0, json.encode(beerChests))
+    print("Sent beer chests")
+    -- sleep for 1 second, we do not want it to send 2735429374 times a milisecond
+    os.sleep(1)
 end

@@ -20,7 +20,7 @@ while true do
                 local detail = inventory.getItemDetailByChestName(chest, i)
                 count = count + detail.count
             end
-            
+
             -- add to beerChests
             beerChests[#beerChests + 1] = {
                 name = name,

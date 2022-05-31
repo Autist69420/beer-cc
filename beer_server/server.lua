@@ -3,12 +3,6 @@ rednet.open(modem)
 
 -- surface api OwO
 os.loadAPI("surface")
--- surface.create(width, height, char, backcolor, textcolor)
--- surf:drawText(x, y, text, backcolor, textcolor)
--- surf:drawRect(x1, y1, x2, y2, char, backcolor, textcolor
--- surf:drawRoundRect(x1, y1, x2, y2, char, backcolor, textcolor)
--- surf:fillRoundedRect(x1, y1, x2, y2, radius, char, backcolor, textcolor)
--- surface.render(surface, display, x, y, sx1, sy1, sx2, sy2)
 
 local json = require("../json")
 
@@ -40,4 +34,3 @@ while true do
     tab_bar:render(screen, 1, 1)
     main_surf:render(screen, 1, 2)
 end
-

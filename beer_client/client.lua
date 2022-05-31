@@ -30,7 +30,7 @@ while true do
         end
     end
     
-    rednet.send(0, json.encode(beerChests))
+    rednet.send(0, json.encode(beerChests), "BEER")
     print("Sent beer chests")
     -- sleep for 1 second, we do not want it to send 2735429374 times a milisecond
     os.sleep(1)

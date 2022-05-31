@@ -27,7 +27,7 @@ main_surf:render(screen, 1, 2)
 while true do
     main_surf:drawText(1, 3, "- Current beer:")
 
-    local id, msg = rednet.receive()
+    local id, msg = rednet.receive("BEER")
     local beerChests = json.decode(msg)
     
     for i, chest in pairs(beerChests) do

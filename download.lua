@@ -4,8 +4,8 @@ local json = require("json")
 
 local to_download = arg[1]
 
-local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_client?ref=rewrite"
-local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_server?ref=rewrite"
+local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_client"
+local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_server"
 
 if to_download == "client" then
     -- Download the client files

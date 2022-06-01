@@ -1,5 +1,28 @@
 -- Downloads the files, lmao
 
+-- check if the json is file is there and if not download it
+if not fs.exists("json.lua") then
+    print("Downloading download.json")
+
+    local JSON_URL = "https://raw.githubusercontent.com/Autist69420/beer-cc/main/json.lua"
+    local ok, err = http.checkURL(JSON_URL)
+    if not ok then
+        print("Error: " .. err)
+        return
+    end
+
+    local json_file, err = http.get(JSON_URL)
+    if not json_file then
+        print("Error: " .. err)
+        return
+    end
+
+    local json_data = json_file.readAll()
+    local file_handle = fs.open(file_name, "w")
+    file_handle.write(json_data)
+    file_handle.close()
+end
+
 local json = require("json")
 
 local to_download = arg[1]

@@ -1,10 +1,19 @@
 local modem_side = arg[1]
+local monitor = arg[2] or "top"
+
+local monitor_wrapped = peripheral.wrap(monitor)
 
 rednet.open(modem_side)
 local inventory = require("inventory")
 local json = require("../json")
 
 while true do
+    monitor.clear()
+    monitor.setCursorPos(1, 1)
+    monitor.write("Beer client is running...")
+    monitor.setCursorPos(1, 2)
+    monitor.write("Computer ID: " .. tostring(os.getComputerID()))
+
     local beerChests = {}
     local chests = inventory.getChests()
 

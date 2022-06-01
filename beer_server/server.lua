@@ -2,7 +2,7 @@ local modem = arg[1]
 rednet.open(modem)
 
 -- surface api OwO
-os.loadAPI("surface")
+os.loadAPI("/beer_server/surface.lua")
 
 local json = require("../json")
 

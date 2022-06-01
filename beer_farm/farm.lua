@@ -13,6 +13,13 @@ local inventory_slots_amount = 16
 
 local switch = false
 
+local function main()
+    refuel()
+    fuckAllSeeds()
+    
+    harvest()
+end
+
 local function refuel()
     local old = turtle.getSelectedSlot()
     for i=1, inventory_slots_amount, 1 do
@@ -92,13 +99,6 @@ local function harvest()
             end
         end
     end
-end
-
-local function main()
-    refuel()
-    fuckAllSeeds()
-    
-    harvest()
 end
 
 main()

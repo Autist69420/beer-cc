@@ -13,12 +13,7 @@ local inventory_slots_amount = 16
 
 local switch = false
 
-local function main()
-    refuel()
-    fuckAllSeeds()
-    
-    harvest()
-end
+
 
 local function refuel()
     local old = turtle.getSelectedSlot()
@@ -79,7 +74,12 @@ local function harvest()
                 turtle.turnRight()
                 turtle.turnRight()
                 turtle.forward()
-                main()
+                
+                refuel()
+                fuckAllSeeds()
+
+                harvest()
+
                 return
             end
 
@@ -99,6 +99,13 @@ local function harvest()
             end
         end
     end
+end
+
+local function main()
+    refuel()
+    fuckAllSeeds()
+    
+    harvest()
 end
 
 main()

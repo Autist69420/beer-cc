@@ -103,5 +103,5 @@ elseif to_download == "farm" then
     print("Downloaded farm.")
 else
     print("Usage: download.lua <client|server|farm>")
-    exit()
+    return
 end

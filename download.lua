@@ -18,7 +18,7 @@ if not fs.exists("json.lua") then
     end
 
     local json_data = json_file.readAll()
-    local file_handle = fs.open(file_name, "w")
+    local file_handle = fs.open("json.lua", "w")
     file_handle.write(json_data)
     file_handle.close()
 end

@@ -6,6 +6,7 @@ local to_download = arg[1]
 
 local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_client"
 local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_server"
+local BEER_FARM = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_farm"
 
 if to_download == "client" then
     -- Download the client files
@@ -53,7 +54,31 @@ elseif to_download == "server" then
     end
 
     print("Downloaded server.")
+
+elseif to_download == "farm" then
+    -- Download the farm files
+    local ok, err = http.checkURL(BEER_FARM)
+    if not ok then
+        print("Error: " .. err)
+        return
+    end
+
+    local request = http.get(BEER_FARM)
+    local farm_files_json = json.decode(request.readAll())
+
+    for i = 1, #farm_files_json do
+        local file_name = farm_files_json[i].name
+        local file_url = farm_files_json[i].download_url
+        local file_content = http.get(file_url)
+        local file_content_str = file_content.readAll()
+        local file_path = "beer_farm/" .. file_name
+        local file_handle = fs.open(file_path, "w")
+        file_handle.write(file_content_str)
+        file_handle.close()
+    end
+
+    print("Downloaded farm.")
 else
-    error("Invalid argument, either choose from 'client' or 'server'", 0)
+    print("Usage: download.lua <client|server|farm>")
     exit()
 end

@@ -8,11 +8,11 @@ local inventory = require("inventory")
 local json = require("../json")
 
 while true do
-    monitor.clear()
-    monitor.setCursorPos(1, 1)
-    monitor.write("Beer client is running...")
-    monitor.setCursorPos(1, 2)
-    monitor.write("Computer ID: " .. tostring(os.getComputerID()))
+    monitor_wrapped.clear()
+    monitor_wrapped.setCursorPos(1, 1)
+    monitor_wrapped.write("Beer client is running...")
+    monitor_wrapped.setCursorPos(1, 2)
+    monitor_wrapped.write("Computer ID: " .. tostring(os.getComputerID()))
 
     local beerChests = {}
     local chests = inventory.getChests()

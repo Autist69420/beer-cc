@@ -13,6 +13,8 @@ while true do
     monitor_wrapped.write("Beer client is running...")
     monitor_wrapped.setCursorPos(1, 2)
     monitor_wrapped.write("Computer ID: " .. tostring(os.getComputerID()))
+    monitor_wrapped.setCursorPos(1, 3)
+    monitor_wrapped.write(os.date())
 
     local beerChests = {}
     local chests = inventory.getChests()

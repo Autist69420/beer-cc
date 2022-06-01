@@ -28,7 +28,7 @@ while true do
         local name = chest.name
         local count = chest.count
         local slots = chest.slots
-        main_surf:drawText(2, 2 + i, "- " .. name .. ": " .. tostring(count) .. " (" .. tostring(slots) .. " slots)")
+        main_surf:drawText(2, 3 + i, "- " .. name .. ": " .. tostring(count) .. " (" .. tostring(slots) .. " slots)")
     end
 
     tab_bar:render(screen, 1, 1)

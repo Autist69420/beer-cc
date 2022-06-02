@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Beer",
+        "protocol": "BEER"
+    },
+    {
+        "name": "Farm",
+        "protocol": "FARM"
+    },
+    {
+        "name": "Minerals",
+        "protocol": "MINERALS"
+    }
+]

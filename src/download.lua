@@ -4,7 +4,7 @@
 if not fs.exists("json.lua") then
     print("Downloading download.json")
 
-    local JSON_URL = "https://raw.githubusercontent.com/Autist69420/beer-cc/main/json.lua"
+    local JSON_URL = "https://raw.githubusercontent.com/Autist69420/beer-cc/main/src/json.lua"
     local ok, err = http.checkURL(JSON_URL)
     if not ok then
         print("Error: " .. err)
@@ -27,9 +27,9 @@ local json = require("json")
 
 local to_download = arg[1]
 
-local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_client"
-local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_server"
-local BEER_FARM = "https://api.github.com/repos/Autist69420/beer-cc/contents/beer_farm"
+local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/beer_client"
+local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/cbeer_server"
+local BEER_FARM = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/beer_farm"
 
 if to_download == "client" then
     -- Download the client files

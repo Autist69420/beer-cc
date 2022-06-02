@@ -1,3 +1,5 @@
+**development has been moved to: https://astolfo.uk/git/macbookairuser12/beer-cc**
+
 # beer cc
 A simple ME inspired storage system made for ComputerCraft.
 

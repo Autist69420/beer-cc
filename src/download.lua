@@ -28,7 +28,7 @@ local json = require("json")
 local to_download = arg[1]
 
 local CLIENT_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/beer_client"
-local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/cbeer_server"
+local SERVER_URL = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/beer_server"
 local BEER_FARM = "https://api.github.com/repos/Autist69420/beer-cc/contents/src/beer_farm"
 
 if to_download == "client" then

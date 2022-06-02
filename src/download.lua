@@ -44,11 +44,10 @@ if to_download == "client" then
 
     for i = 1, #client_files_json do
         local file_name = client_files_json[i].name
-        local file_name_no_src = file_name:gsub("src/", "")
         local file_url = client_files_json[i].download_url
         local file_content = http.get(file_url)
         local file_content_str = file_content.readAll()
-        local file_path = "beer_client/" .. file_name_no_src
+        local file_path = "beer_client/" .. file_name
         local file_handle = fs.open(file_path, "w")
         file_handle.write(file_content_str)
         file_handle.close()
